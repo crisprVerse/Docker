@@ -31,5 +31,4 @@ RUN R -e ".libPaths(c('/home/crisprdesign/usr/local/lib/R/site-library', .libPat
 
 RUN R -e ".libPaths(c('/home/crisprdesign/usr/local/lib/R/site-library', .libPaths())); remotes::install_github('LTLA/basilisk', ref='master'); remotes::install_github('LTLA/basilisk.utils', ref='master'); remotes::install_github('Jfortin1/crisprBase', ref='master'); remotes::install_github('Jfortin1/crisprBowtie', ref='master'); remotes::install_github('Jfortin1/crisprScoreData', ref='main'); remotes::install_github('Jfortin1/crisprScore', ref='main'); remotes::install_github('Jfortin1/Rbwa', ref='master'); remotes::install_github('Jfortin1/crisprBwa', ref='master'); remotes::install_github('Jfortin1/crisprDesign', ref='master'); remotes::install_github('Jfortin1/crisprDesignData', ref='main')"
 
-COPY .Rprofile /home/crisprdesign
-
+ENV R_LIBS_USER=/home/crisprdesign/usr/local/lib/R/site-library
