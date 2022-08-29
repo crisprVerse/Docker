@@ -16,6 +16,8 @@ RUN addgroup --system crisprverse \
 
 WORKDIR /home/crisprverse
 
+ENV BASILISK_USE_SYSTEM_DIR=1
+
 RUN chown crisprverse:crisprverse -R /home/crisprverse
 
 RUN echo "TMPDIR=/home/crisprverse/tmp" > /home/crisprverse/.Renviron 
@@ -26,6 +28,6 @@ RUN R -e ".libPaths(c('/home/crisprverse/usr/local/lib/R/site-library', .libPath
 
 RUN R -e ".libPaths(c('/home/crisprverse/usr/local/lib/R/site-library', .libPaths())); BiocManager::install(c('AnnotationHub', 'BiocGenerics', 'BiocStyle', 'Biostrings', 'ExperimentHub', 'GenomeInfoDb', 'GenomicRanges', 'IRanges', 'Rbowtie', 'S4Vectors', 'XVector', 'rtracklayer', 'BSgenome', 'BSgenome.Hsapiens.UCSC.hg38'))"
 
-RUN R -e ".libPaths(c('/home/crisprverse/usr/local/lib/R/site-library', .libPaths())); remotes::install_github('LTLA/basilisk', ref='master'); remotes::install_github('LTLA/basilisk.utils', ref='master'); remotes::install_github('crisprVerse/crisprBase', ref='master'); remotes::install_github('crisprVerse/crisprBowtie', ref='master'); remotes::install_github('crisprVerse/crisprScoreData', ref='master'); remotes::install_github('crisprVerse/crisprScore', ref='master'); remotes::install_github('crisprVerse/Rbwa', ref='master'); remotes::install_github('crisprVerse/crisprBwa', ref='master'); remotes::install_github('crisprVerse/crisprDesign', ref='master'); remotes::install_github('crisprVerse/crisprDesignData', ref='master'): remotes::install_github('crisprVerse/crisprViz', ref='master'); remotes::install_github('crisprVerse/crisprVerse', ref='main')"
+RUN R -e ".libPaths(c('/home/crisprverse/usr/local/lib/R/site-library', .libPaths())); remotes::install_github('LTLA/basilisk', ref='master'); remotes::install_github('LTLA/basilisk.utils', ref='master'); remotes::install_github('crisprVerse/crisprBase', ref='master'); remotes::install_github('crisprVerse/crisprBowtie', ref='master'); remotes::install_github('crisprVerse/crisprScoreData', ref='master'); remotes::install_github('crisprVerse/crisprScore', ref='master'); remotes::install_github('crisprVerse/Rbwa', ref='master'); remotes::install_github('crisprVerse/crisprBwa', ref='master'); remotes::install_github('crisprVerse/crisprDesign', ref='master'); remotes::install_github('crisprVerse/crisprDesignData', ref='master'); remotes::install_github('crisprVerse/crisprViz', ref='master'); remotes::install_github('crisprVerse/crisprVerse', ref='main')"
 
 ENV R_LIBS_USER=/home/crisprverse/usr/local/lib/R/site-library
