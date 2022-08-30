@@ -8,6 +8,8 @@ The image contains the following conponents:
 - ViennaRNA 2.5.1
 - RNAhybrid 2.1.2
 
+Convienently, all Python conda environments needed for [crisprScore](https://github.com/crisprVerse/crisprScore) are also already installed in the Docker image. 
+
 ### Obtaining the Docker image
 
 The Docker image can be pulled directly from the [Docker Hub](https://hub.docker.com/r/fortin946/crisprverse) using the following command
