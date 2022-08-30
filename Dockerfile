@@ -31,3 +31,16 @@ RUN R -e ".libPaths(c('/home/crisprverse/usr/local/lib/R/site-library', .libPath
 RUN R -e ".libPaths(c('/home/crisprverse/usr/local/lib/R/site-library', .libPaths())); remotes::install_github('LTLA/basilisk', ref='master'); remotes::install_github('LTLA/basilisk.utils', ref='master'); remotes::install_github('crisprVerse/crisprBase', ref='master'); remotes::install_github('crisprVerse/crisprBowtie', ref='master'); remotes::install_github('crisprVerse/crisprScoreData', ref='master'); remotes::install_github('crisprVerse/crisprScore', ref='master'); remotes::install_github('crisprVerse/Rbwa', ref='master'); remotes::install_github('crisprVerse/crisprBwa', ref='master'); remotes::install_github('crisprVerse/crisprDesign', ref='master'); remotes::install_github('crisprVerse/crisprDesignData', ref='master'); remotes::install_github('crisprVerse/crisprViz', ref='master'); remotes::install_github('crisprVerse/crisprVerse', ref='main')"
 
 ENV R_LIBS_USER=/home/crisprverse/usr/local/lib/R/site-library
+
+RUN wget --no-check-certificate https://www.tbi.univie.ac.at/RNA/download/sourcecode/2_5_x/ViennaRNA-2.5.1.tar.gz
+RUN tar -zxvf ViennaRNA-2.5.1.tar.gz
+RUN rm ViennaRNA-2.5.1.tar.gz
+RUN cd ViennaRNA-2.5.1 && ./configure && make && make install
+
+RUN wget --no-check-certificate https://bibiserv.cebitec.uni-bielefeld.de/applications/rnahybrid/resources/downloads/RNAhybrid-2.1.2.tar.gz
+RUN tar -zxvf RNAhybrid-2.1.2.tar.gz
+RUN rm RNAhybrid-2.1.2.tar.gz
+RUN cd RNAhybrid-2.1.2 && ./configure && make && make install
+
+
+
