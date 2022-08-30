@@ -49,3 +49,8 @@ ls indices
 will list the files available in the `/Users/fortinj2/crisprIndices` folder as it it mounted to the `indices` folder inside of the container.
 For more information about volume and mounting, see the [Docker documentation](https://docs.docker.com/get-started/06_bind_mounts/).
 
+### Modifying the Docker image
+
+Users can use our [Dockerfile](https://github.com/crisprVerse/Docker/blob/master/Dockerfile) as a starting point to modify or customize the Docker image. 
+
+
