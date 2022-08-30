@@ -40,7 +40,5 @@ RUN cd ViennaRNA-2.5.1 && ./configure && make && make install
 RUN wget --no-check-certificate https://bibiserv.cebitec.uni-bielefeld.de/applications/rnahybrid/resources/downloads/RNAhybrid-2.1.2.tar.gz
 RUN tar -zxvf RNAhybrid-2.1.2.tar.gz
 RUN rm RNAhybrid-2.1.2.tar.gz
-RUN cd RNAhybrid-2.1.2 && ./configure && make && make install
-
-
+RUN cd RNAhybrid-2.1.2 && ./configure && make CFLAGS='-fcommon' && make install
 
